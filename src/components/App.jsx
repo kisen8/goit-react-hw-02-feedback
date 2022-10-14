@@ -1,7 +1,14 @@
 import React from 'react';
-import Feedback from './Feedback/Feedback';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 
+import { Box } from 'App.styled';
+const buttons = [
+  { name: 'good', id: 1 },
+  { name: 'neutral', id: 2 },
+  { name: 'bad', id: 3 },
+];
 class App extends React.Component {
   state = {
     good: 0,
@@ -25,16 +32,25 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div>
-        <Feedback onClick={this.updateState} />
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={this.countTotalFeedback()}
-          countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
-        />
-      </div>
+      <Box>
+        <Section title={'Please leave feedback'}>
+          <FeedbackOptions
+            options={buttons}
+            onLeaveFeedback={this.updateState}
+          />
+        </Section>
+        <Section title={'Statistics'}>
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            countPositiveFeedbackPercentage={
+              this.countPositiveFeedbackPercentage
+            }
+          />
+        </Section>
+      </Box>
     );
   }
 }

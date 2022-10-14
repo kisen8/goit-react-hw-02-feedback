@@ -7,7 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: darkcyan;
+
+  background-image: url(./michelinTyres.jpg);
+  background-repeat: no-repeat;
+  background-position-x: center;
 }
 
 code {

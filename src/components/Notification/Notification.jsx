@@ -1,13 +1,17 @@
 import React from 'react';
-
+import { TitleNotification } from './Notification.styled';
+import PropTypes from 'prop-types';
 class Notification extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.message}</h1>
+        <TitleNotification>{this.props.message}</TitleNotification>
       </div>
     );
   }
 }
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
+};
 
 export default Notification;

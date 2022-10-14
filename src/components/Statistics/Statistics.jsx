@@ -1,26 +1,34 @@
 import React from 'react';
 import Notification from 'components/Notification/Notification';
+import { StatisticsSection, StatList, StatItem } from './Statistics.styled';
+import PropTypes from 'prop-types';
 class Statistics extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Statistics</h1>
+      <StatisticsSection>
         {this.props.total === 0 ? (
           <Notification message={'There is no feedback'} />
         ) : (
-          <ul>
-            <li>Good: {this.props.good}</li>
-            <li>Neutral: {this.props.neutral}</li>
-            <li>Bad: {this.props.bad}</li>
-            <li>Total: {this.props.total}</li>
-            <li>
+          <StatList>
+            <StatItem>Good: {this.props.good}</StatItem>
+            <StatItem>Neutral: {this.props.neutral}</StatItem>
+            <StatItem>Bad: {this.props.bad}</StatItem>
+            <StatItem>Total: {this.props.total}</StatItem>
+            <StatItem>
               Positive feedback: {this.props.countPositiveFeedbackPercentage()}%
-            </li>
-          </ul>
+            </StatItem>
+          </StatList>
         )}
-      </div>
+      </StatisticsSection>
     );
   }
 }
 
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
+};
 export default Statistics;
