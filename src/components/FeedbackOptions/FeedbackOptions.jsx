@@ -7,12 +7,12 @@ class FeedbackOptions extends React.Component {
     return (
       <div>
         <div>
-          {this.props.options.map(item => (
+          {Object.keys(this.props.options).map((item, index) => (
             <Buttons
-              onClick={() => this.props.onLeaveFeedback(item.name, 1)}
-              key={item.id}
+              onClick={() => this.props.onLeaveFeedback(item)}
+              key={index}
             >
-              {item.name}
+              {item}
             </Buttons>
           ))}
         </div>
@@ -21,7 +21,7 @@ class FeedbackOptions extends React.Component {
   }
 }
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  options: PropTypes.object.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 

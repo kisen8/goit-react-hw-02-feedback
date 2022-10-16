@@ -15,7 +15,7 @@ class Statistics extends React.Component {
             <StatItem>Bad: {this.props.bad}</StatItem>
             <StatItem>Total: {this.props.total}</StatItem>
             <StatItem>
-              Positive feedback: {this.props.countPositiveFeedbackPercentage()}%
+              Positive feedback: {this.props.positiveFeedback()}%
             </StatItem>
           </StatList>
         )}
@@ -29,6 +29,6 @@ Statistics.propTypes = {
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
+  positiveFeedback: PropTypes.func.isRequired,
 };
 export default Statistics;

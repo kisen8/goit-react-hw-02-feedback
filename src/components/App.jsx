@@ -4,11 +4,7 @@ import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 
 import { Box } from 'App.styled';
-const buttons = [
-  { name: 'good', id: 1 },
-  { name: 'neutral', id: 2 },
-  { name: 'bad', id: 3 },
-];
+
 class App extends React.Component {
   state = {
     good: 0,
@@ -35,7 +31,7 @@ class App extends React.Component {
       <Box>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={buttons}
+            options={this.state}
             onLeaveFeedback={this.updateState}
           />
         </Section>
@@ -45,9 +41,7 @@ class App extends React.Component {
             neutral={this.state.neutral}
             bad={this.state.bad}
             total={this.countTotalFeedback()}
-            countPositiveFeedbackPercentage={
-              this.countPositiveFeedbackPercentage
-            }
+            positiveFeedback={this.countPositiveFeedbackPercentage}
           />
         </Section>
       </Box>
